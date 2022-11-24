@@ -12,7 +12,7 @@ def get_user_choice():
 def get_winner(computer_choice,user_choice):
     if computer_choice == user_choice :
         print("It is a tie!")
-    if (computer_choice == "Paper" and user_choice == "scissor") or (computer_choice == "Rock" and user_choice == "paper") or (computer_choice == "Scissors" and user_choice == "rock"): 
+    if (computer_choice == "Paper" and user_choice == "Scissors") or (computer_choice == "Rock" and user_choice == "Paper") or (computer_choice == "Scissors" and user_choice == "Rock"): 
         print("You won ")
     else:
         print("You lost")                       
