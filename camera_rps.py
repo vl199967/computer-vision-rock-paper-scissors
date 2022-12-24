@@ -9,9 +9,11 @@ cap = cv2.VideoCapture(0)
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 def get_prediction():
-    count_down = 7
-    secs = time.time()
-    while secs<=count_down: 
+
+    max_time = 7 
+    start = time()
+
+    while (time() - start)<max_time: 
         ret, frame = cap.read()
         resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
         image_np = np.array(resized_frame)
@@ -20,14 +22,14 @@ def get_prediction():
         prediction = model.predict(data)
         cv2.imshow('frame', frame)
         # Press q to close the window
-        print(count_down - secs)
-        player_choice = np.argmax(prediction,axis=-1)
-        return player_choice 
+        player_choice = np.argmax(prediction,axis=-1)   
             
     # After the loop release the cap object
     cap.release()
     # Destroy all the windows
     cv2.destroyAllWindows()
+
+    return player_choice
 
 get_prediction
 
