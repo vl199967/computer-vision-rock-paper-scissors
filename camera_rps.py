@@ -9,7 +9,7 @@ cap = cv2.VideoCapture(0)
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 def get_prediction():
-
+    player_choice = None
     max_time = 7 
     start = time()
 
