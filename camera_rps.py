@@ -23,6 +23,8 @@ def get_prediction():
         cv2.imshow('frame', frame)
         # Press q to close the window
         player_choice = np.argmax(prediction,axis=-1)   
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+         break
             
     # After the loop release the cap object
     cap.release()

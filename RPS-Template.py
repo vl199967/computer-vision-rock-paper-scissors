@@ -6,6 +6,7 @@ model = load_model('keras_model.h5')
 cap = cv2.VideoCapture(0)
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
+player_choice = None
 max_time = 5
 start = time()
 
@@ -18,7 +19,7 @@ while (time() - start) < max_time:
     prediction = model.predict(data)
     cv2.imshow('frame', frame)
     # Press q to close the window
-    print(np.argmax(prediction,axis=-1))
+    player_choice = np.argmax(prediction,axis=-1)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
             
@@ -26,3 +27,7 @@ while (time() - start) < max_time:
 cap.release()
 # Destroy all the windows
 cv2.destroyAllWindows()
+
+print(player_choice[0])
+
+print(type(player_choice))
