@@ -24,14 +24,13 @@ def get_prediction():
         # Press q to close the window
         player_choice = np.argmax(prediction,axis=-1)   
         if cv2.waitKey(1) & 0xFF == ord('q'):
-         break
+           break
             
     # After the loop release the cap object
     cap.release()
     # Destroy all the windows
     cv2.destroyAllWindows()
 
-    return player_choice
+    return player_choice[0]
 
-get_prediction
 
