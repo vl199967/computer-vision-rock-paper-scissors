@@ -3,6 +3,7 @@ import cv2
 from keras.models import load_model
 from time import time 
 import numpy as np
+import random 
 
 model = load_model('keras_model.h5')
 cap = cv2.VideoCapture(0)
@@ -32,5 +33,25 @@ def get_prediction():
     cv2.destroyAllWindows()
 
     return player_choice[0]
+
+
+def get_computer_choice():
+    options = ["Rock","Paper","Scissors"]
+    chose = random.choice(options)
+    return chose 
+
+def get_winner(computer_choice,user_choice):
+    if (computer_choice == "Paper" and user_choice == 2) or (computer_choice == "Rock" and user_choice == 0) or (computer_choice == "Scissors" and user_choice == 1) :
+        print("It is a tie!")
+    elif (computer_choice == "Paper" and user_choice == 1) or (computer_choice == "Rock" and user_choice == 2) or (computer_choice == "Scissors" and user_choice == 0): 
+        print("You won ")
+    else:
+        print("You lost")                       
+
+
+
+
+
+
 
 
