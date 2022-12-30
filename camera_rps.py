@@ -68,7 +68,8 @@ def play():
     else:
         print("It is a tie!")          
     
-play()
+
+    
 
 
 
