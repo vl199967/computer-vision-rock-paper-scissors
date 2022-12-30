@@ -6,10 +6,11 @@ import numpy as np
 import random 
 
 model = load_model('keras_model.h5')
-cap = cv2.VideoCapture(0)
-data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+
 
 def get_prediction():
+    cap = cv2.VideoCapture(0)
+    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
     player_choice = None
     max_time = 7 
     start = time()
@@ -48,7 +49,7 @@ def get_winner(computer_choice,user_choice):
     else:
         return("You lost")                       
 
-def play():
+def main():
     pwin = 0 
     cwin = 0 
     for i in range(3):
@@ -68,7 +69,8 @@ def play():
     else:
         print("It is a tie!")          
     
-
+if __name__ == "__main__":
+    main()
     
 
 
